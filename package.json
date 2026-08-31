@@ -1,0 +1,1 @@
+{"name":"monitore-sistemas-eletronicos-v2","version":"2.1.0","private":true,"scripts":{"dev":"next dev","build":"next build","start":"next start"},"dependencies":{"next":"16.1.6","react":"19.2.3","react-dom":"19.2.3","lucide-react":"^0.468.0"},"devDependencies":{"@types/node":"^22","@types/react":"^19","typescript":"^5.7"}}
