@@ -32,6 +32,9 @@ export async function readCms() {
 export async function writeCms(data: unknown) {
   const { url, service } = await ensureBucket();
   const response = await fetch(`${url}/storage/v1/object/${bucket}/${objectPath}`, { method: "POST", headers: { apikey: service!, Authorization: `Bearer ${service}`, "Content-Type": "application/json", "x-upsert": "true" }, body: JSON.stringify(data) });
-  if (!response.ok) throw new Error("Não foi possível salvar as alterações.");
+  if (!response.ok) {
+    const details = await response.text();
+    console.error("[cms] Supabase upload failed", { status: response.status, details: details.slice(0, 500) });
+    throw new Error(`Não foi possível salvar as alterações (${response.status}).`);
+  }
 }
-
