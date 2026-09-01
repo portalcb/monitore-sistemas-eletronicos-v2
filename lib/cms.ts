@@ -20,6 +20,7 @@ export const defaultCms = {
     {slug:"automatizadores-portoes",name:"Automatizadores de Portões",image:"/services/portoes.jpg",desc:"Automação de acessos veiculares com solução dimensionada conforme portão, fluxo e necessidade do imóvel.",benefits:["Acesso mais prático","Operação automatizada","Projeto por contexto"],published:true},
     {slug:"monitoramento",name:"Monitoramento",image:"/services/monitoramento.jpg",desc:"Estrutura integrada para acompanhamento de eventos e equipamentos de segurança eletrônica.",benefits:["Acompanhamento centralizado","Integração de sistemas","Mais visibilidade operacional"],published:true}
   ],
+  posts: [] as Array<{id:string;title:string;slug:string;excerpt:string;content:string;category:string;tags:string[];image:string;author:string;status:"draft"|"published"|"scheduled";publishAt:string;seoTitle:string;seoDescription:string}>,
   updatedAt: null as string | null, updatedBy: null as string | null,
 };
 const bucket = "monitore-cms"; const objectPath = "content/site.json";
@@ -45,7 +46,7 @@ export async function readCms() {
     const response = await fetch(`${url}/storage/v1/object/authenticated/${bucket}/${objectPath}`, { headers: { apikey: service!, Authorization: `Bearer ${service}` }, cache: "no-store" });
     if (!response.ok) return defaultCms;
     const saved = await response.json();
-    return { ...defaultCms, ...saved, services: Array.isArray(saved.services) ? saved.services : defaultCms.services };
+    return { ...defaultCms, ...saved, services: Array.isArray(saved.services) ? saved.services : defaultCms.services, posts: Array.isArray(saved.posts) ? saved.posts : defaultCms.posts };
   } catch { return defaultCms; }
 }
 
