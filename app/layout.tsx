@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://monitore-sistemas-eletronicos-v2.vercel.app"),
   title: { default: "Monitore Sistemas Eletrônicos | Balneário Camboriú", template: "%s | Monitore" },
   description: "Soluções em segurança eletrônica e tecnologia em Balneário Camboriú.",
-  icons: { icon: "/logo-monitore.png", apple: "/logo-monitore.png" },
+  icons: { icon: "/favicon-monitore.png", apple: "/favicon-monitore.png" },
   openGraph: { title: "Monitore Sistemas Eletrônicos", description: "Segurança eletrônica e tecnologia em Balneário Camboriú.", images: ["/monitore-hero.jpg"] }
 };
 
