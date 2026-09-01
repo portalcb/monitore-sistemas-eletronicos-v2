@@ -13,7 +13,10 @@ async function ensureBucket() {
   if (!service) throw new Error("A chave privada do Supabase não está disponível.");
   const headers = { apikey: service, Authorization: `Bearer ${service}`, "Content-Type": "application/json" };
   const check = await fetch(`${url}/storage/v1/bucket/${bucket}`, { headers, cache: "no-store" });
-  if (check.status === 404) {
+  if (!check.ok) {
+    const checkDetails = await check.text();
+    const missingBucket = check.status === 404 || check.status === 400 && (checkDetails.includes("NoSuchBucket") || checkDetails.includes("Bucket not found"));
+    if (!missingBucket) throw new Error(`Não foi possível verificar o armazenamento (${check.status}).`);
     const created = await fetch(`${url}/storage/v1/bucket`, { method: "POST", headers, body: JSON.stringify({ id: bucket, name: bucket, public: false, file_size_limit: 10485760 }) });
     if (!created.ok && created.status !== 409) throw new Error("Não foi possível preparar o armazenamento do painel.");
   }
