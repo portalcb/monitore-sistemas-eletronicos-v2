@@ -1,0 +1,5 @@
+"use client";
+import { useMemo } from "react";
+const blocked=new Set(["script","style","iframe","object","embed","form","input","button","link","meta","base"]);
+function clean(html:string){if(typeof DOMParser==="undefined")return "";const doc=new DOMParser().parseFromString(html,"text/html");doc.querySelectorAll("*").forEach(el=>{const tag=el.tagName.toLowerCase();if(blocked.has(tag)){el.remove();return}for(const attr of [...el.attributes]){const name=attr.name.toLowerCase(),value=attr.value.trim().toLowerCase();if(name.startsWith("on")||name==="srcdoc"||name==="style"||(["href","src","xlink:href"].includes(name)&&(value.startsWith("javascript:")||value.startsWith("data:text/html"))))el.removeAttribute(attr.name)}if(tag==="a"){el.setAttribute("rel","noopener noreferrer");if(el.getAttribute("target")==="_blank")el.setAttribute("target","_blank")}});return doc.body.innerHTML}
+export default function SafeHtml({html}:{html:string}){const safe=useMemo(()=>clean(html),[html]);return <div className="rich-html" dangerouslySetInnerHTML={{__html:safe}}/>}
