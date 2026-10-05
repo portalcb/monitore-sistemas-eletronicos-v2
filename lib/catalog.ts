@@ -79,7 +79,7 @@ export const catalog = [
     "slug": "controle-de-acesso-facial",
     "name": "Controle de Acesso Facial",
     "icon": "ScanFace",
-    "image": "",
+    "image": "/services/acesso-facial.jpg",
     "desc": "Instalação de sistemas de reconhecimento facial para controlar entradas de pessoas autorizadas em condomínios e empresas.",
     "benefits": [
       "Identificação facial",
@@ -104,7 +104,7 @@ export const catalog = [
     "slug": "cameras-wifi",
     "name": "Instalação de Câmeras Wi-Fi",
     "icon": "Wifi",
-    "image": "",
+    "image": "/services/camera-wifi.jpg",
     "desc": "Instalação e configuração de câmeras Wi-Fi para acompanhar ambientes com equipamentos compatíveis e rede disponível.",
     "benefits": [
       "Configuração na rede Wi-Fi",
@@ -129,7 +129,7 @@ export const catalog = [
     "slug": "fechaduras-eletromagneticas",
     "name": "Instalação de Fechaduras Eletromagnéticas",
     "icon": "LockKeyhole",
-    "image": "",
+    "image": "/services/fechadura-eletromagnetica.jpg",
     "desc": "Instalação de fechaduras eletromagnéticas para portas e acessos, conforme a compatibilidade da estrutura e dos equipamentos.",
     "benefits": [
       "Controle da abertura",
@@ -179,7 +179,7 @@ export const catalog = [
     "slug": "materiais-cerca-eletrica",
     "name": "Venda de Materiais para Cerca Elétrica",
     "icon": "Cable",
-    "image": "",
+    "image": "/services/materiais-cerca-eletrica.jpg",
     "desc": "Venda de materiais para sistemas de cerca elétrica. Consulte os itens disponíveis e a compatibilidade para o seu projeto.",
     "benefits": [
       "Consulta de disponibilidade",
@@ -204,7 +204,7 @@ export const catalog = [
     "slug": "organizacao-cftv",
     "name": "Rack e Organização de Sistemas CFTV",
     "icon": "Server",
-    "image": "",
+    "image": "/services/cabeamento.jpg",
     "desc": "Organização de DVR/NVR, fontes, cabeamento, conectores e equipamentos do sistema de câmeras, com rack quando adequado ao projeto.",
     "benefits": [
       "Equipamentos organizados",
@@ -229,7 +229,7 @@ export const catalog = [
     "slug": "pecas-motores-portoes",
     "name": "Peças para Motores de Portões",
     "icon": "Settings",
-    "image": "",
+    "image": "/services/pecas-motor-portao.jpg",
     "desc": "Venda de peças para motores e sistemas de automação de portões. Informe marca e modelo para consultar compatibilidade e disponibilidade.",
     "benefits": [
       "Consulta pelo modelo",

@@ -34,7 +34,7 @@ export const readCms = cache(async function readCms() {
     const response = await fetch(`${url}/storage/v1/object/authenticated/${bucket}/${objectPath}`, { headers: { apikey: service!, Authorization: `Bearer ${service}` }, cache: "no-store" });
     if (!response.ok) return defaultCms;
     const saved = await response.json();
-    return { ...defaultCms, ...saved, company: { ...defaultCms.company, ...saved.company }, catalogVersion, home: saved.catalogVersion === catalogVersion ? saved.home : commercialHome, seo: saved.catalogVersion === catalogVersion ? saved.seo : commercialSeo, services: saved.catalogVersion === catalogVersion && Array.isArray(saved.services) ? saved.services.filter((s: {slug: string}) => catalog.some(c => c.slug === s.slug)) : catalog, posts: Array.isArray(saved.posts) ? saved.posts : defaultCms.posts };
+    return { ...defaultCms, ...saved, company: { ...defaultCms.company, ...saved.company }, catalogVersion, home: saved.catalogVersion === catalogVersion ? saved.home : commercialHome, seo: saved.catalogVersion === catalogVersion ? saved.seo : commercialSeo, services: saved.catalogVersion === catalogVersion && Array.isArray(saved.services) ? saved.services.filter((s: {slug: string}) => catalog.some(c => c.slug === s.slug)).map((s: {slug: string;image?: string}) => ({ ...catalog.find(c => c.slug === s.slug), ...s, image: s.image || catalog.find(c => c.slug === s.slug)!.image })) : catalog, posts: Array.isArray(saved.posts) ? saved.posts : defaultCms.posts };
   } catch { return defaultCms; }
 });
 
