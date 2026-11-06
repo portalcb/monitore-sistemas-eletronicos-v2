@@ -601,8 +601,8 @@ footer {
 .footer-credit span { color: #aeb3b8; }
 .footer-credit img {
   display: block;
-  width: 120px;
-  height: 42px;
+  width: 180px;
+  height: 60px;
   object-fit: contain;
 }
 .mobile-cta {
@@ -731,6 +731,7 @@ footer {
   }
   .legal > * { margin-top: 10px; }
   .footer-credit { justify-content: flex-start; width: max-content; }
+  .footer-credit img { width: min(180px, 48vw); height: auto; }
   .legal span {
     display: block;
     margin-top: 6px;
